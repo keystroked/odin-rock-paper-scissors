@@ -6,16 +6,33 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let draw = "You tied! Better luck next time";
-    let lose = "You Lose! Paper beats Rock";
+    let draw = "You tied! You both chose " + computerSelection;
+    let lose = "You Lose! " + computerSelection + " beats " + playerSelection;
+    let win = "You Win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + " beats " + computerSelection;
     if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
         return draw;
+    }
+    else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "Scissors"){
+        return win;
+    }
+    else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "Paper"){
+        return win;
+    }
+    else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "Scissors"){
+        return win;
     }
     else{
         return lose;
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerSelection();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    for (let i = 0; i < 5; i++)
+    {
+        let playerSelection = prompt("Please Choose: Rock | Paper | Scissors... ");
+        const computerSelection = getComputerChoice();
+        return console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+game();
