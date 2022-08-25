@@ -1,8 +1,8 @@
-const gameOption = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
+    const gameOption = ["Rock", "Paper", "Scissors"];
     const randomGameOption = gameOption[Math.floor(Math.random() * gameOption.length)]
     return randomGameOption;
 }
