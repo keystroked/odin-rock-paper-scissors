@@ -11,20 +11,14 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
         return "You tied! You both chose " + computerSelection;
     }
-    else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "Scissors"){
-        playerScore = playerScore+1;
-        return "You Win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + " beats " + computerSelection;
-    }
-    else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "Paper"){
-        playerScore = playerScore+1;
-        return "You Win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + " beats " + computerSelection;
-    }
-    else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "Scissors"){
-        playerScore = playerScore+1;
+    else if ((playerSelection.toUpperCase() === "ROCK" && computerSelection === "Scissors")
+        || (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "Paper")
+        || (playerSelection.toUpperCase() === "PAPER" && computerSelection === "Scissors")){
+        playerScore++;
         return "You Win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + " beats " + computerSelection;
     }
     else{
-        computerScore = computerScore+1;
+        computerScore++;
         return "You Lose! " + computerSelection + " beats " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     }
 }
