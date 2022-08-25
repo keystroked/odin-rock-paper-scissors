@@ -1,28 +1,21 @@
-// Pseudocode - generalized plan 
-/*
+const gameOption = ["Rock", "Paper", "Scissors"];
 
-Game will be played against the computer 
-RPS will be managed through the console for now
+function getComputerChoice() {
+    const randomGameOption = gameOption[Math.floor(Math.random() * gameOption.length)]
+    return randomGameOption;
+}
 
-CREATE getComputerChoice function that will randomly return rock, paper, or scissors. Function will choose the computer's choice for the game. 
-Test using the console to make sure it returns a random selection
-
-CREATE function to play a single round of Rock Paper Scissors. gameRound (playerSelection, computerSelection);
-Function should return a string to console declaring the winner of the round. 
-EX: You Lose! Paper beats Rock, You Win! Rock beats Scissors
-
-player selection should be case-insensitive. (Take input RoCk, rock, ROCK).
-return results of function call not console.log 
-
-CREATE function called game() that runs gameRound 5 times and keeps track of the score and display the results of each round and the overall winner.
-USE prompt() to get input from the user. */////////////////////////////////
-
-let gameOption = ["Rock", "Paper", "Scissors"];
-let randomGameOption = gameOption[Math.floor(Math.random() * gameOption.length)] 
-
-console.log(randomGameOption);
-
-/*
 function playRound(playerSelection, computerSelection) {
+    let draw = "You tied! Better luck next time";
+    let lose = "You Lose! Paper beats Rock";
+    if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
+        return draw;
+    }
+    else{
+        return lose;
+    }
+}
 
-} */
+const playerSelection = "rock";
+const computerSelection = getComputerSelection();
+console.log(playRound(playerSelection, computerSelection));
